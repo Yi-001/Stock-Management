@@ -13,7 +13,7 @@ class SignUpView(View):
     
     def post(self, request):
         form = UserRegisterForm(request.POST)
-
+        
         if form.is_valid():
             form.save()
             user = authenticate(
@@ -23,4 +23,4 @@ class SignUpView(View):
 
             login(request, user)
             return redirect('index')
-        return render(request, 'inventory/singnup.html', {'form': form})
+        return render(request, 'inventory/signup.html', {'form': form})
